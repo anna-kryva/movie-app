@@ -5,7 +5,7 @@ const errorHandler = require('./utils/errorHandler');
 
 const app = express();
 
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(express.json({extended: true}));
 app.use((err, req, res, next) => {
   errorHandler(res, err);

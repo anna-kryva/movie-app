@@ -1,13 +1,13 @@
-import config from 'config';
-import { connect } from 'mongoose';
-import app from './app';
+const config = require('config');
+const mongoose = require('mongoose');
+const app = require('./app');
 
 const PORT = config.get('port') || 5000;
 
 // eslint-disable-next-line require-jsdoc
-(async function start() {
+(async () => {
   try {
-    await connect(config.get('mongoURI'), {
+    await mongoose.connect(config.get('mongoURI'), {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -20,4 +20,4 @@ const PORT = config.get('port') || 5000;
   }
 })();
 
-export default app;
+module.exports = app;
