@@ -6,7 +6,7 @@ module.exports.getMovies = async (req, res) => {
     const movies = await Movie.find({}).sort('title');
 
     res.status(200).json({
-      status: 'Issues uploaded successfully',
+      status: 'Movies uploaded successfully',
       movies,
     });
   } catch (error) {
