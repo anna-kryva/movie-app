@@ -1,13 +1,19 @@
-const config = require('config');
 const mongoose = require('mongoose');
 const app = require('./app');
 
-const PORT = config.get('port') || 5000;
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+const env = process.env.NODE_ENV;
+const envString = env.toUpperCase();
+
+const PORT = process.env['PORT_' + envString];
 
 // eslint-disable-next-line require-jsdoc
 (async () => {
   try {
-    await mongoose.connect(config.get('mongoURI'), {
+    await mongoose.connect(process.env['MONGO_URI_' + envString], {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

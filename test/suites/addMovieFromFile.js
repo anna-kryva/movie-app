@@ -28,8 +28,6 @@ module.exports = () => {
 
       const movies = await Movie.find({});
 
-      console.log(movies);
-
       res.should.have.status(200);
       res.body.should.have.property('status')
           .eql('Movies added successfully');

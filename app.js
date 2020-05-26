@@ -1,11 +1,18 @@
 const express = require('express');
 // const cors = require('cors');
 const morgan = require('morgan');
+const fs = require('fs');
+const path = require('path');
 const errorHandler = require('./utils/errorHandler');
 
 const app = express();
 
-app.use(morgan('dev'));
+const accessLogStream = fs.createWriteStream(
+    path.join(__dirname, 'logs/access.log'),
+    {flags: 'a'},
+);
+app.use(morgan('dev', {stream: accessLogStream}));
+
 app.use(express.json({extended: true}));
 app.use((err, req, res, next) => {
   errorHandler(res, err);
