@@ -1,0 +1,30 @@
+{
+  "name": "movie-api",
+  "version": "1.0.0",
+  "description": "Application to store movies information",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "reactjs"
+  ],
+  "author": "Anna Kryva <anna120100@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.15",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^2.0.4"
+  }
+}
