@@ -35,13 +35,18 @@ module.exports.getMovieById = async (req, res) => {
 
 module.exports.addMovieFromJSON = async (req, res) => {
   try {
-    const movie = await Movie.findOne({...req.body});
+    const {title, releaseYear, format} = req.body;
+    const stars = req.body.stars.split(', ');
+
+    const candidate = {title, releaseYear, format, stars};
+
+    const movie = await Movie.findOne(candidate);
 
     if (movie) {
       return res.status(400).json({status: 'Movie is already existed'});
     }
 
-    const newMovie = new Movie({...req.body});
+    const newMovie = new Movie(candidate);
     await newMovie.save();
 
     res.status(200).json({

@@ -1,0 +1,20 @@
+@import '../includes/mixins';
+@import '../includes/variables';
+
+.movie-compact {
+    margin: 20px auto;
+    max-width: 600px;
+
+    @include phones {
+        margin: 10px;
+    }
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__button {
+        max-height: 40px;
+    }
+}

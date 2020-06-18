@@ -7,7 +7,7 @@ module.exports = {
     format: Joi.string()
         .valid('VHS', 'DVD', 'Blu-Ray')
         .required(),
-    stars: Joi.array().items(Joi.string().max(1000).required()).required(),
+    stars: Joi.string().max(2000).required(),
   }),
 
   paramsCheckForm: Joi.object({

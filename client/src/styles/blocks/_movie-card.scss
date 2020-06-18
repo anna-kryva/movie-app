@@ -1,0 +1,16 @@
+@import '../includes/mixins';
+@import '../includes/variables';
+
+.movie-card {
+    margin: 20px auto;
+    max-width: 500px;
+
+    @include phones {
+        margin: 10px;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+    }
+}
